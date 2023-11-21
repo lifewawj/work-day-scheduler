@@ -59,5 +59,6 @@ textarea {
 }
 
 #current_date {
+  color: #06aed5;
   font-size: 3rem;
 }
