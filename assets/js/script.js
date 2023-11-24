@@ -12,16 +12,14 @@ var currentTimeEl = $('#current_time')
 var Time = currentTimeEl.text(today.format('h:mm A'))
 
 
-// targets all saveBtn classes depending on specific time block id s
-var hour9_saveBtnEl = $('#hour-9').children('button');
-var hour10_saveBtnEl = $('#hour-10').children('button');
-var hour11_saveBtnEl = $('#hour-11').children('button');
-var hour12_saveBtnEl = $('#hour-12').children('button');
-var hour1_saveBtnEl = $('#hour-1').children('button');
-var hour2_saveBtnEl = $('#hour-2').children('button');
-var hour3_saveBtnEl = $('#hour-3').children('button');
-var hour4_saveBtnEl = $('#hour-4').children('button');
-var hour5_saveBtnEl = $('#hour-5').children('button');
+
+
+
+
+
+
+
+
 
 
 
@@ -31,7 +29,6 @@ var hour5_saveBtnEl = $('#hour-5').children('button');
 // function? How can DOM traversal be used to get the "hour-x" id of the
 // time-block containing the button that was clicked? How might the id be
 // useful when saving the description in local storage?
-
 
 // Targets all specific time block ids
 var hour9_timeblock = $('#hour-9')
@@ -44,6 +41,16 @@ var hour3_timeblock = $('#hour-3')
 var hour4_timeblock = $('#hour-4')
 var hour5_timeblock = $('#hour-5')
 
+// targets all saveBtn classes depending on specific time block id s
+var hour9_saveBtnEl = $('#hour-9').children('button');
+var hour10_saveBtnEl = $('#hour-10').children('button');
+var hour11_saveBtnEl = $('#hour-11').children('button');
+var hour12_saveBtnEl = $('#hour-12').children('button');
+var hour1_saveBtnEl = $('#hour-1').children('button');
+var hour2_saveBtnEl = $('#hour-2').children('button');
+var hour3_saveBtnEl = $('#hour-3').children('button');
+var hour4_saveBtnEl = $('#hour-4').children('button');
+var hour5_saveBtnEl = $('#hour-5').children('button');
 
 //saveBtn for specific time block
 hour9_saveBtnEl.on('click', function(){
@@ -91,6 +98,24 @@ hour5_saveBtnEl.on('click', function(){
   console.log('User has saved their hour 5 activity!')
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// TODO: Add code to get any user input that was saved in localStorage and set
+// the values of the corresponding textarea elements. HINT: How can the id
+// attribute of each time-block be used to do this?
 
 // Targets all hour time blocks input areas
 var hour9_userInputEl = $(hour9_timeblock).children('textarea');
@@ -213,16 +238,8 @@ function getLocalStorage() {
   return;
 }
 
+// CALLS the 'getLocalStorage();' function to check if the user has any stored data saved, and displays it on the webpage
 getLocalStorage();
-// TODO: Add code to get any user input that was saved in localStorage and set
-// the values of the corresponding textarea elements. HINT: How can the id
-// attribute of each time-block be used to do this?
-
-
-
-
-
-
 
 
 

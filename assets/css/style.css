@@ -58,6 +58,7 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
+#current_time,
 #current_date {
   color: #06aed5;
   font-size: 3rem;
