@@ -5,15 +5,13 @@ dayjs.extend(window.dayjs_plugin_utc)
 var today = dayjs()
 
 // TODO: Add code to display the current date in the header of the page.
+//  DISPLAYS current date
 var currentDateEl = $('#current_date')
 currentDateEl.text(today.format('dddd' + ',' + ' ' + 'MMMM' + ' ' + 'DD'))
 
+// DISPLAYS current time
 var currentTimeEl = $('#current_time')
-var Time = currentTimeEl.text(today.format('h:mm A'))
-
-
-
-
+var displayTime = currentTimeEl.text(today.format('h:mm A'))
 
 
 
@@ -41,6 +39,8 @@ var hour3_timeblock = $('#hour-3')
 var hour4_timeblock = $('#hour-4')
 var hour5_timeblock = $('#hour-5')
 
+var hourS = [hour9_timeblock, hour10_timeblock, hour11_timeblock, hour12_timeblock, hour1_timeblock, hour2_timeblock, hour3_timeblock, hour4_timeblock, hour5_timeblock];
+
 // targets all saveBtn classes depending on specific time block id s
 var hour9_saveBtnEl = $('#hour-9').children('button');
 var hour10_saveBtnEl = $('#hour-10').children('button');
@@ -53,54 +53,50 @@ var hour4_saveBtnEl = $('#hour-4').children('button');
 var hour5_saveBtnEl = $('#hour-5').children('button');
 
 //saveBtn for specific time block
-hour9_saveBtnEl.on('click', function(){
+hour9_saveBtnEl.on('click', function () {
   hour_9();
   console.log('User has saved their hour 9 activity!')
 });
 
-hour10_saveBtnEl.on('click', function(){
+hour10_saveBtnEl.on('click', function () {
   hour_10();
   console.log('User has saved their hour 10 activity!')
 });
 
-hour11_saveBtnEl.on('click', function(){
+hour11_saveBtnEl.on('click', function () {
   hour_11();
   console.log('User has saved their hour 11 activity!')
 });
 
-hour12_saveBtnEl.on('click', function(){
+hour12_saveBtnEl.on('click', function () {
   hour_12();
   console.log('User has saved their hour 12 activity!')
 });
 
-hour1_saveBtnEl.on('click', function(){
+hour1_saveBtnEl.on('click', function () {
   hour_1();
   console.log('User has saved their hour 1 activity!')
 });
 
-hour2_saveBtnEl.on('click', function(){
+hour2_saveBtnEl.on('click', function () {
   hour_2();
   console.log('User has saved their hour 2 activity!')
 });
 
-hour3_saveBtnEl.on('click', function(){
+hour3_saveBtnEl.on('click', function () {
   hour_3();
   console.log('User has saved their hour 3 activity!')
 });
 
-hour4_saveBtnEl.on('click', function(){
+hour4_saveBtnEl.on('click', function () {
   hour_4();
   console.log('User has saved their hour 4 activity!')
 });
 
-hour5_saveBtnEl.on('click', function(){
+hour5_saveBtnEl.on('click', function () {
   hour_5();
   console.log('User has saved their hour 5 activity!')
 });
-
-
-
-
 
 
 
@@ -234,15 +230,9 @@ function getLocalStorage() {
   hour3_userInputEl.text(hour3_storedData);
   hour4_userInputEl.text(hour4_storedData);
   hour5_userInputEl.text(hour5_storedData);
-  
+
   return;
 }
-
-// CALLS the 'getLocalStorage();' function to check if the user has any stored data saved, and displays it on the webpage
-getLocalStorage();
-
-
-
 
 
 
@@ -256,6 +246,51 @@ getLocalStorage();
 // past, present, and future classes? How can Day.js be used to get the
 // current hour in 24-hour time?
 
-//display time
-//select time and if it = this time
-//change css style color to assigned color
+// select time and if it = this time
+// change css style color to assigned color
+// adding or changing the assigned attribute based on its time block
+// Makes sure HTML doc loads first than loads the dom manipulation
+$(document).ready(function () {
+  console.log('Document is ready!')
+
+  // CALLS the 'getLocalStorage();' function to check if the user has any stored data saved, and displays it on the webpage
+  getLocalStorage();
+
+  var currentHour = dayjs().hour()
+
+  if (currentHour === 9) {
+    $('#hour-9').addClass('present')
+  }
+
+  if (currentHour === 10) {
+    $('#hour-10').addClass('present')
+  }
+
+  if (currentHour === 11) {
+    $('#hour-11').addClass('present')
+  }
+
+  if (currentHour === 12) {
+    $('#hour-12').addClass('present')
+  }
+
+  if (currentHour === 1) {
+    $('#hour-1').addClass('present')
+  }
+
+  if (currentHour === 2) {
+    $('#hour-2').addClass('present')
+  }
+
+  if (currentHour === 3) {
+    $('#hour-3').addClass('present')
+  }
+
+  if (currentHour === 4) {
+    $('#hour-4').addClass('present')
+  }
+
+  if (currentHour === 5) {
+    $('#hour-5').addClass('present')
+  }
+});
