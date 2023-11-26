@@ -27,4 +27,4 @@ Auto-Save Functionality:
 - Experience a peace of mind with our auto-save functionality! Never worry about losing your task updates or changes again. Your progress is automatically saved in real-time, ensuring that when you return later, your page reloads with all your latest edits intact. Enjoy a seamless and worry-free user experience, focusing on your tasks without the fear of data loss.
 
 ## Link(s)
-Deployed Application:
+Deployed Application: https://lifewawj.github.io/Work-day-Schedule/ 
