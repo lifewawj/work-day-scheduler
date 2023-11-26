@@ -8,12 +8,26 @@ What have I learned?
 - Knowing how to save User's data in Local Storage and being able to pull it display it on the webpage
 
 ## Image(s) & Usage
+1. Locate the Text-Area:
+Look for the dedicated text-area where you can input your tasks and responsibilities. It's usually a blank space where you can type.
 
-ADD A GIPHY (animation)
+2. Click on the Text-Area:
+Using your mouse or touchpad, click on the text-area to activate it. This allows you to start typing.
 
-Provide instructions and examples for use. Include screenshots as needed.
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
-![alt text](assets/images/screenshot.png)
+3. Input Tasks and Responsibilities:
+Begin typing your tasks and responsibilities for the day into the text-area.
+
+4. Review and Edit (if needed):
+Take a moment to review the tasks you've entered. If necessary, edit the text to make sure everything is accurate and well-organized.
+
+5. Locate the SAVE Icon:
+Look for the SAVE icon on the right side of the page.
+
+6. Click the SAVE Icon:
+Click on the SAVE icon to save your input. This action stores your tasks and responsibilities so you can access them later.
+
+![IMG-1](IMG-1.png)
+![IMG-2](IMG-2.png)
 
 ## Features
 

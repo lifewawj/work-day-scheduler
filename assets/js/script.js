@@ -253,7 +253,7 @@ function getLocalStorage() {
 // past, present, and future classes? How can Day.js be used to get the
 // current hour in 24-hour time?
 
-function colorTime() {
+function colorTimeDisplay () {
   var currentTime = dayjs().format('H');
 
   // TARGETS All classes that have the 'time-block' class and for EACH one, we are going to create a new variable that converts the data type. The Number represented from the class 'hour-[X].' X will be converted from a string to a Integer/Number. And will be stored in a variable. Giving us only a number based on the id 'hour-X'
