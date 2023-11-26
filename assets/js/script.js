@@ -2,10 +2,22 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 dayjs.extend(window.dayjs_plugin_utc)
-var today = dayjs()
+
+// Makes sure HTML doc loads first than loads the dom manipulation
+$(document).ready(function () {
+  console.log('Document is ready!')
+
+  // CALLS the 'getLocalStorage();' function to check if the user has any stored data saved, and displays it on the webpage
+  getLocalStorage();
+
+  // Displays present Hour
+  colorTime();
+});
 
 // TODO: Add code to display the current date in the header of the page.
 //  DISPLAYS current date
+var today = dayjs()
+
 var currentDateEl = $('#current_date')
 currentDateEl.text(today.format('dddd' + ',' + ' ' + 'MMMM' + ' ' + 'DD'))
 
@@ -235,82 +247,45 @@ function getLocalStorage() {
 }
 
 
-
-
-// Makes sure HTML doc loads first than loads the dom manipulation
-$(document).ready(function () {
-  console.log('Document is ready!')
-
-  // CALLS the 'getLocalStorage();' function to check if the user has any stored data saved, and displays it on the webpage
-  getLocalStorage();
-
-  // Displays present Hour
-  displayPresentHour();
-});
-
-
-
 // TODO: Add code to apply the past, present, or future class to each time
 // block by comparing the id to the current hour. HINTS: How can the id
 // attribute of each time-block be used to conditionally add or remove the
 // past, present, and future classes? How can Day.js be used to get the
 // current hour in 24-hour time?
 
-// Displays present Hour
-function displayPresentHour() {
+function colorTime() {
+  var currentTime = dayjs().format('H');
 
-  var currentTimeEl = $('#current_time')
-  var displayTime = currentTimeEl.text(today.format('h:mm a'))
+  // TARGETS All classes that have the 'time-block' class and for EACH one, we are going to create a new variable that converts the data type. The Number represented from the class 'hour-[X].' X will be converted from a string to a Integer/Number. And will be stored in a variable. Giving us only a number based on the id 'hour-X'
+  // 'parseInt' -> converts a string to an integer
+  // '$(this) -> targets the the element with the class '.time-block'
+  // '.attr('id') -> targets the elements id attribute
+  // '.split("hour-") -> splits the id into 2 and creating an array, splitting "hour-" and "X" (the assigned integer/number)
+  // '[1]' -> retrieves the second element created from the array
+  $(".time-block").each(function () {
+    var timeBlock = parseInt($(this).attr("id").split("hour-")[1]);
 
-  if (displayTime == 9) {
-    $('#hour-9').attr('class', 'row time-block present');
-  }
+  // IF Statements:
+  // Checks if the timeBlock is = to the currentTime, remove these classes (past & future) and add class present
+    if (timeBlock == currentTime) {
+      $(this).removeClass("past");
+      $(this).removeClass("future");
+      $(this).addClass("present");
 
-  if (displayTime == 10) {
-    $('#hour-10').attr('class', 'row time-block present');
-  }
+    }
+  // Checks if the timeBlock is < the currentTime, removes these classes (future & present) and add the class past
+    else if (timeBlock < currentTime) {
+      $(this).removeClass("future");
+      $(this).removeClass("present");
+      $(this).addClass("past");
 
-  if (displayTime == 11) {
-    $('#hour-11').attr('class', 'row time-block present');
-  }
+    }
+  // If the timeBlock is none of the if statements above, remove the classes (present & past) and add the class future
+    else {
+      $(this).removeClass("present");
+      $(this).removeClass("past");
+      $(this).addClass("future");
 
-  if (displayTime == 12) {
-    $('#hour-12').attr('class', 'row time-block present');
-  }
-
-  if (displayTime == 1) {
-    $('#hour-1').attr('class', 'row time-block present');
-  }
-
-  if (displayTime == 2) {
-    $('#hour-2').attr('class', 'row time-block present');
-  }
-
-  if (displayTime == 3) {
-    $('#hour-3').attr('class', 'row time-block present');
-  }
-
-  if (displayTime == 4) {
-    $('#hour-4').attr('class', 'row time-block present');
-  }
-
-  if (displayTime == 5) {
-    $('#hour-5').attr('class', 'row time-block present');
-  }
-
-};
-
-
-// IF currentHour is not in between 9am to 5pm make all time-blocks with the future class
-// if (currentHour !>= 9 || currentHour !<= 17) {
-//   // FUTURE
-//   $('#hour-5').attr('class','row time-block future')
-//   $('#hour-4').attr('class','row time-block future')
-//   $('#hour-3').attr('class','row time-block future')
-//   $('#hour-2').attr('class','row time-block future')
-//   $('#hour-1').attr('class','row time-block future')
-//   $('#hour-12').attr('class','row time-block future')
-//   $('#hour-11').attr('class','row time-block future')
-//   $('#hour-10').attr('class','row time-block future')
-//   $('#hour-9').attr('class','row time-block future')
-// }
+    }
+  });
+}
