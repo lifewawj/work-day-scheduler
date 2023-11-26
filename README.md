@@ -6,6 +6,7 @@ In our daily tasks and responsibilities, it's easy to get overwhelmed. Having a 
 
 What have I learned?
 - Knowing how to save User's data in Local Storage and being able to pull it display it on the webpage
+- Learned how to use and work with DayJS
 
 ## Image(s) & Usage
 1. Locate the Text-Area:
