@@ -11,7 +11,7 @@ currentDateEl.text(today.format('dddd' + ',' + ' ' + 'MMMM' + ' ' + 'DD'))
 
 // DISPLAYS current time
 var currentTimeEl = $('#current_time')
-var displayTime = currentTimeEl.text(today.format('h:mm A'))
+var displayTime = currentTimeEl.text(today.format('h:mm a'))
 
 
 
@@ -237,6 +237,16 @@ function getLocalStorage() {
 
 
 
+// Makes sure HTML doc loads first than loads the dom manipulation
+$(document).ready(function () {
+  console.log('Document is ready!')
+
+  // CALLS the 'getLocalStorage();' function to check if the user has any stored data saved, and displays it on the webpage
+  getLocalStorage();
+
+  // Displays present Hour
+  displayPresentHour();
+});
 
 
 
@@ -246,51 +256,61 @@ function getLocalStorage() {
 // past, present, and future classes? How can Day.js be used to get the
 // current hour in 24-hour time?
 
-// select time and if it = this time
-// change css style color to assigned color
-// adding or changing the assigned attribute based on its time block
-// Makes sure HTML doc loads first than loads the dom manipulation
-$(document).ready(function () {
-  console.log('Document is ready!')
+// Displays present Hour
+function displayPresentHour() {
 
-  // CALLS the 'getLocalStorage();' function to check if the user has any stored data saved, and displays it on the webpage
-  getLocalStorage();
+  var currentTimeEl = $('#current_time')
+  var displayTime = currentTimeEl.text(today.format('h:mm a'))
 
-  var currentHour = dayjs().hour()
-
-  if (currentHour === 9) {
-    $('#hour-9').addClass('present')
+  if (displayTime == 9) {
+    $('#hour-9').attr('class', 'row time-block present');
   }
 
-  if (currentHour === 10) {
-    $('#hour-10').addClass('present')
+  if (displayTime == 10) {
+    $('#hour-10').attr('class', 'row time-block present');
   }
 
-  if (currentHour === 11) {
-    $('#hour-11').addClass('present')
+  if (displayTime == 11) {
+    $('#hour-11').attr('class', 'row time-block present');
   }
 
-  if (currentHour === 12) {
-    $('#hour-12').addClass('present')
+  if (displayTime == 12) {
+    $('#hour-12').attr('class', 'row time-block present');
   }
 
-  if (currentHour === 1) {
-    $('#hour-1').addClass('present')
+  if (displayTime == 1) {
+    $('#hour-1').attr('class', 'row time-block present');
   }
 
-  if (currentHour === 2) {
-    $('#hour-2').addClass('present')
+  if (displayTime == 2) {
+    $('#hour-2').attr('class', 'row time-block present');
   }
 
-  if (currentHour === 3) {
-    $('#hour-3').addClass('present')
+  if (displayTime == 3) {
+    $('#hour-3').attr('class', 'row time-block present');
   }
 
-  if (currentHour === 4) {
-    $('#hour-4').addClass('present')
+  if (displayTime == 4) {
+    $('#hour-4').attr('class', 'row time-block present');
   }
 
-  if (currentHour === 5) {
-    $('#hour-5').addClass('present')
+  if (displayTime == 5) {
+    $('#hour-5').attr('class', 'row time-block present');
   }
-});
+
+};
+
+
+// IF currentHour is not in between 9am to 5pm make all time-blocks with the future class
+// if (currentHour !>= 9 || currentHour !<= 17) {
+//   // FUTURE
+//   $('#hour-5').attr('class','row time-block future')
+//   $('#hour-4').attr('class','row time-block future')
+//   $('#hour-3').attr('class','row time-block future')
+//   $('#hour-2').attr('class','row time-block future')
+//   $('#hour-1').attr('class','row time-block future')
+//   $('#hour-12').attr('class','row time-block future')
+//   $('#hour-11').attr('class','row time-block future')
+//   $('#hour-10').attr('class','row time-block future')
+//   $('#hour-9').attr('class','row time-block future')
+// }
